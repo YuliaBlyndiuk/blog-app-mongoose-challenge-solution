@@ -125,5 +125,52 @@ describe('blog API resource', function() {
 			});
 		});
 	});
-	
+	// describe('PUT endpoint', function() {
+	// 	it('should update fields one sends over', function() {
+	// 		const updData = {
+	// 			title: 'testTitle',
+	// 			content: 'testContent'
+	// 		};
+
+	// 		return BlogPost
+	// 		.findOne()
+	// 		.exec()
+	// 		.then(function(post) {
+	// 			updData.id = post.id;
+	// 			return chai.request(app)
+	// 			.put('/posts/${post.id}')
+	// 			.send(updData);
+	// 		})
+
+	// 		.then(function(res) {
+	// 			res.should.have.status(204);
+	// 			return BlogPost.findById(updData.id).exec();
+	// 		})
+	// 		.then(function(post) {
+	// 			post.title.should.equal(updData.title);
+	// 			post.content.should.equal(updData.content);
+	// 		});
+	// 	});
+	// });
+
+	describe('DELETE endpoint', function() {
+		it('Delete a blogpost by id', function() {
+			let post;
+
+			return BlogPost
+			.findOne()
+			.exec()
+			.then(function(_post) {
+				post = _post;
+				return chai.request(app).delete(`/posts/${post.id}`);
+			})
+			.then(function(res) {
+				res.should.have.status(204);
+				return BlogPost.findById(post.id).exec();
+			})
+			.then(function(_post) {
+				should.not.exist(_post);
+			});
+		});
+	});
 });
