@@ -104,4 +104,26 @@ describe('blog API resource', function() {
 			});
 		});
 	});
+
+	describe('POST endpoint', function() {
+		it('should add a new blogpost', function() {
+			const newBlogPost = generateBlogPostData();
+
+			return chai.request(app)
+			.post('/posts')
+			.send(newBlogPost)
+			.then(function(res) {
+				res.should.have.status(201);
+				res.should.be.json;
+				res.body.should.be.an('object');
+				res.body.should.include.keys(
+					'id', 'author', 'title', 'content');
+				// console.log(res.body.author);
+				// res.body.author.should.equal(newBlogPost.author);
+				res.body.content.should.equal(newBlogPost.content);
+				res.body.title.should.equal(newBlogPost.title);
+			});
+		});
+	});
+	
 });
