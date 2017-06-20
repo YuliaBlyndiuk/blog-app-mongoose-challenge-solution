@@ -2,3 +2,10 @@ language: node_js
 node_js: node
 services:
 - mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: j4eah1bxTc1dArMtyCxKRXcPOyyadTt0kQnh3vepmHCGUrK0zW+M9kzNYPyRaeXZgrV9FSgyH7m6ppQcXTn9GdQ6MIVk0Xt1lCqNdofrKlGXX87zelMzmgFBqjygwa92ldsPenENOJp0KIy3PkHqthrdSed1cfFdvAwvkTQDKDO7GKE8VGOr5SXHXWvfPPnmQVCd/ss2K5l4gxm1kMyuTnMsltWXOKjzKV3vOnAx75LXf7FE7cLH78X8o/IHqA/dWKkSLjuv6yzUphCStG5TFEvE7pHHj60vfTR926uBJBx94NipPmPtlf69EuDpa/h0nsutJODgd8GsKS56J4NQsZ30VmFTIgC3w71cG8tzBW5f6kAGH4Hn5srrL/OK/7QQo9pNrNXQNXS8kV5EpI8tDgPWEsTj6Xrqthv99z7rGx9VDdjbneb+O6dCVhLcDZMuN189DMoQCqEhzhh/Ge+neugASB+NaQAvMEdaBdtcL63F2zA6c7LagDSl4gUS0gJq1GdgqTtsLsiBuqLBbnM2W2z7pUfXu/rhMzk9csAZDznzuDIibRuFgYeRKYqD/+q3/SW2p/YV9Bn2wtfXFn0bqFoFIIOXHN4P/wsaR5BII9aw9XwzYGxfo6zbV2chmTs/OQ9c3E/elomVflGs8YZUZD5vl0BrvjT49CeDPd8LxJY=
+  app: arcane-shelf-73307
+  on:
+    repo: YuliaBlyndiuk/blog-app-mongoose-challenge-solution
